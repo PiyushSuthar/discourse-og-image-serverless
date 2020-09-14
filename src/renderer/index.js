@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer-serverless')
+const chrome = require('chrome-aws-lambda')
 
 /**
  * 
@@ -6,11 +7,20 @@ const puppeteer = require('puppeteer-serverless')
  */
 
 const getImage = async html => {
-    const browser = await puppeteer.launch()
+    const options = await getOptions()
+    const browser = await puppeteer.launch(options)
     const page = await browser.newPage()
     await page.setViewport({ width: 600, height: 300 })
     await page.setContent(html)
     return await page.screenshot({ type: "png" })
 }
+
+const getOptions = async isDev => {
+    return {
+      args: chrome.args,
+      executablePath: await chrome.executablePath,
+      headless: chrome.headless,
+    };
+  };
 
 module.exports = getImage
