@@ -10,7 +10,7 @@ const getImage = async html => {
     const page = await browser.newPage()
     await page.setViewport({ width: 600, height: 300 })
     await page.setContent(html)
-    return await page.screenshot({ type: "image/png" })
+    return await page.screenshot({ type: "png" })
 }
 
 module.exports = getImage
