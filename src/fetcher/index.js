@@ -18,7 +18,8 @@ const fetchData = async url => {
  */
 
 const getCategoryById = async (url, id) => {
-    const rebuiltUrl = `https://${url.hostname}/categories.json`
+    const parsedURL = new URL(url)
+    const rebuiltUrl = `https://${parsedURL.hostname}/categories.json`
     const data = await (await axios.get(rebuiltUrl)).data
     const category = data.category_list.categories.filter(cate => cate.id === id)
     return category
