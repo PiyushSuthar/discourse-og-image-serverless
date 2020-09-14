@@ -28,7 +28,7 @@
   color: #333;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content:flex-start;
   font-family: 'Lato', sans-serif;
 }
 .logo img{
