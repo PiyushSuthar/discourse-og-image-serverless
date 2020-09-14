@@ -27,7 +27,9 @@ module.exports = async (req, res) => {
     } catch (err) {
         res.statusCode = 500
         res.send({
-            error: "Either the url you gave is incorrect or there's some error on our server! :("
+            error: "Either the url you gave is incorrect or there's some error on our server! :(",
+            message: err
         })
+        console.error(err)
     }
 }
