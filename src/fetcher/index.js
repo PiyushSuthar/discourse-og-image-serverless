@@ -34,7 +34,7 @@ const getCategoryById = async (url, id) => {
 const parseData = (data, category) => {
     return {
         title: data.title,
-        category: category.name,
+        category: category[0].name,
         date: parseDate(data.created_at),
         views: data.views,
         likes: data.like_count,
