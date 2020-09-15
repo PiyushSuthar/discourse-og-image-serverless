@@ -10,7 +10,7 @@ const getImage = async html => {
     const options = await getOptions()
     const browser = await puppeteer.launch(options)
     const page = await browser.newPage()
-    await page.setViewport({ width: 600, height: 305 })
+    await page.setViewport({ width: 1300, height: 605 })
     await page.setContent(html)
     return await page.screenshot({ type: "png" })
 }
